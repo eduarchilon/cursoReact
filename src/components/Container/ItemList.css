@@ -1,0 +1,13 @@
+.productos__container{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px 5%;
+    justify-content: space-around;
+}
+
+@media (max-width: 1024px){
+    .productos__container{
+        margin: 20px 5%;
+
+    }
+}

@@ -1,0 +1,27 @@
+.card__container{
+    width: 300px;
+    margin: 5px;
+    border: 2px solid rgb(34, 21, 21);
+    border-radius: 5px;
+}
+
+.card__container img{
+    width: 40%;
+    margin: 10px 0;
+}
+
+.card__cuerpo{
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__cuerpo h4, .card__cuerpo h3{
+    text-align: justify;
+    margin: 5px 5px;
+}
+
+.card__descripcion p{
+    text-align: justify;
+    margin: 5px 5px;
+}

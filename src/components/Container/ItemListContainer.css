@@ -7,4 +7,14 @@
     border: 2px solid black;
     border-radius: 10px;
     margin-top: 100px;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+@media (max-width: 550px){
+
+    .itemListContainer{
+        font-size: 1em;
+        width: 90%;
+    }
 }
