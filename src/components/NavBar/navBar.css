@@ -63,6 +63,12 @@ nav{
     border-radius: 5px;
 }
 
+.link{
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    text-decoration: none;
+}
+
 /* .nav__menu-items p:hover{
     background-color: burlywood;
     cursor: pointer;
@@ -104,8 +110,8 @@ nav{
 
     .nav__cart img{
         right: 170px;
-    }
 
+}
 }
 
 @media (max-width: 550px){
@@ -122,9 +128,15 @@ nav{
         margin-left: 0;
     }
 
+    .nav__logo{
+        position: absolute;
+        top: 10px;
+    }
+
     .nav__cart img{
         width: 40px;
         top: 20px;
+        
     }
 
     .nav__cart p{
