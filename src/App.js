@@ -1,4 +1,5 @@
 import './App.css';
+// import {useState} from 'react'
 import '../src/app/web'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import NavBar from '../src/components/NavBar/NavBar'
@@ -11,8 +12,10 @@ let titulo = 'Bienvenido Coders!'
 let subtitulo = 'Vamos a aprender React'
 
 
-
 function App() {
+
+
+
   return (
     <BrowserRouter>
       <div className='App'>

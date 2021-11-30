@@ -1,23 +1,19 @@
 import './ItemDetailContainer.css'
 import React from 'react'
+import ItemCount from './ItemCount';
 
 function ItemDetail( {item}) {
 
-    const {title, price, pictureUrl, categoria} = item;
+    const {title, price, pictureUrl, categoria, stock} = item;
 
     return (
         <div className="detail">
             <img src={pictureUrl} alt="" />
             <h2 className="detail-item">{title}</h2>
             <h4 className="detail-item">{categoria}</h4>
-            <h5 className="detail-item">Stock: xx</h5>
+            <h5 className="detail-item">Stock: {stock}</h5>
             <h3 className="detail-item">{price}</h3>
-            <div className="detail__agregados">
-                <button>-</button>
-                <p>cant.</p>
-                <button>+</button>
-            </div>
-            <button className="detail-item detail-item-btn">Agregar al carrito</button>
+           <ItemCount initial={0} stock={stock} />-+
         </div>
     )
 }

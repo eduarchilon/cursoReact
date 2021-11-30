@@ -38,3 +38,43 @@
     border: 0;
     font-weight: 700;
 }
+
+.btn-detail-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-detail-container button{
+    padding: 5px 10px;
+    margin: 0 10px;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 700;
+
+}
+
+.sumar{
+    background-color: green;
+}
+
+.sumar, .restar, .agregar-carrito{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.agregar-carrito button{
+    background-color: greenyellow;
+}
+
+.restar{
+    background-color: red;
+}
+
+.btn-detail-item{
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
