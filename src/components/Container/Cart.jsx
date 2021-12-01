@@ -2,6 +2,9 @@ import React from 'react'
 import './ItemListContainer.css';
 
 function Cart() {
+
+    // const {cartList, vaciarCarrito} =useContext(CartContext)
+
     return (
         <div className="cart__info">
             <h1>El carrito esta vácio</h1>

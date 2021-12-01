@@ -2,6 +2,7 @@ import './ItemListContainer.css'
 import ItemList from './ItemList';
 import {productos} from '../Other/Productos';
 import {useState, useEffect} from 'react'
+import {useParams} from 'react-router-dom';
 
 
 
@@ -16,23 +17,30 @@ function ItemListContainer(props) {
 
     const {titulo, subtitulo} = props;
 
+    const { idCategoria } = useParams(); 
+
     const [products, setproducts] = useState([])
     const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        miPromesa
-        .then(datos=>{
-            console.log(datos)
-            setproducts(datos)
-        })
-        .catch(error =>{
-            console.log(error)
-        })
-        .finally(()=>{
-            console.log('Dr. ¡reacccion de fusión exitosa!')
-            setLoading(false)
-        })
-    },[])
+    useEffect(()=>{
+        if(idCategoria){
+            miPromesa
+            .then(data=>{
+                setproducts(data.filter(datos =>datos.categoria ===idCategoria))
+            })
+            .catch(error => console.log(error))
+            .finally(()=>
+            setLoading(false))
+        }else if (!idCategoria){
+            miPromesa
+            .then(data=>{
+                setproducts(data)
+                console.log(data)
+            })
+            .catch(error=> console.log(error))
+            .finally(()=>setLoading(false))
+        }
+    },[idCategoria])
     
 
 

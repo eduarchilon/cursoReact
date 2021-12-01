@@ -21,8 +21,8 @@ function ItemDetailContainer() {
 
     useEffect(() => {
         getItem
-        .then(prod=>{
-            setProduct(prod)
+        .then(prods=>{
+            setProduct(prods)
         })
         .catch(error=>{
             console.log(error)
@@ -36,8 +36,8 @@ function ItemDetailContainer() {
 
     return (
         <>
-        {loading ? 
-                    <h2>Cargando producto...</h2>
+        { loading ? 
+                    <h2>Cargando productos...</h2>
                 :
                 <div className="detail__container">
                     <ItemDetail item={product[idProducto]}/> 

@@ -13,7 +13,7 @@ function ItemDetail( {item}) {
             <h4 className="detail-item">{categoria}</h4>
             <h5 className="detail-item">Stock: {stock}</h5>
             <h3 className="detail-item">{price}</h3>
-           <ItemCount initial={0} stock={stock} />-+
+           <ItemCount initial={0} stock={stock} />
         </div>
     )
 }
