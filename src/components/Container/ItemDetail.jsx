@@ -2,6 +2,7 @@ import './ItemDetailContainer.css'
 import React from 'react'
 import ItemCount from './ItemCount';
 import {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
 // import { CartContext } from '../../context/CartContext';
 // import productos from '../Other/Productos';
@@ -44,7 +45,10 @@ function ItemDetail( {item}) {
             {terminar ?
 
             <div className="agregar-carrito-2">
+
+                <Link to="/cart">
                 <button>Terminar Compra</button>
+                </Link>
             </div>
             :   
             <ItemCount initial={count} stock={stock} onAdd={addItem} />
