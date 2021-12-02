@@ -1,11 +1,12 @@
 import './App.css';
-// import {useState} from 'react'
+import CartContextProvider from '../src/context/CartContext'
 import '../src/app/web'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import NavBar from '../src/components/NavBar/NavBar'
 import ItemListContainer from './components/Container/ItemListContainer';
 import Cart from '../src/components/Container/Cart'
 import ItemDetailContainer from '../src/components/Container/ItemDetailContainer'
+
 
 /*variables*/
 let titulo = 'Bienvenido Coders!'
@@ -16,8 +17,12 @@ function App() {
 
 
 
+
+
   return (
-    <BrowserRouter>
+    <>
+      <CartContextProvider>
+      <BrowserRouter>
       <div className='App'>
         <NavBar />
         <Routes>
@@ -36,6 +41,9 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
+      </CartContextProvider>
+    </>
+    
   );
 }
 

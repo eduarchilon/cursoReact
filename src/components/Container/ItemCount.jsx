@@ -16,9 +16,7 @@ function ItemCount({initial, stock, onAdd}) {
         }
     }
     
-    function Agregar(){
-        onAdd(count)
-    }
+    // console.log(count)
 
     return (
         <>
@@ -29,7 +27,7 @@ function ItemCount({initial, stock, onAdd}) {
                 <button onClick={Restar} className="restar">-</button>
               </div>
               <div className="agregar-carrito">
-                <button onClick={Agregar}>Agregar al carrito</button>
+                <button onClick={()=>onAdd(count)}>Agregar al carrito</button>
               </div>
             </div>  
         </>

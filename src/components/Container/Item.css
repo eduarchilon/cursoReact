@@ -66,6 +66,14 @@
     background-color: greenyellow;
 }
 
+.agregar-carrito-2 button{
+    background-color: red;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0;
+}
+
 .restar{
     background-color: red;
 }
