@@ -11,7 +11,7 @@ function ItemDetail( {item}) {
     
     const [count, setCount] = useState(0)
 
-    const {cartList, agregarProducto} = useCartContext()
+    const {cartList, agregarProducto, removerItem, isInCart} = useCartContext()
 
 
     const [terminar, setTerminar] = useState(false)
@@ -26,16 +26,28 @@ function ItemDetail( {item}) {
         }
     },[count])
 
-    console.log(cartList)
 
     function addItem (cant) {
-        setCount(cant)
-        agregarProducto ({...item, cantidad: cant})
+            if(!isInCart(item.id)){
+                agregarProducto ({...item, cantidad: cant})
+                setCount(cant)
+                // console.log(count)
+            }else{
+                cant = cant+count
+                // console.log(cant)
+                // console.log(count)
+                removerItem(item.id)
+                agregarProducto ({...item, cantidad:cant})
+                setCount(cant)
+                // console.log(count)
+            }
     }
+    console.log(cartList)
 
     const {title, price, pictureUrl, categoria, stock} = item;
 
     return (
+        
         <div className="detail">
             <img src={pictureUrl} alt="" />
             <h2 className="detail-item">{title}</h2>
@@ -51,8 +63,10 @@ function ItemDetail( {item}) {
                 </Link>
             </div>
             :   
-            <ItemCount initial={count} stock={stock} onAdd={addItem} />
+            <ItemCount initial={0} stock={stock} onAdd={addItem} />
+            
         }
+        {/* <ItemCount initial={0} stock={stock} onAdd={addItem} /> */}
         </div>
     )
 }

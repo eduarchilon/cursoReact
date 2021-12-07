@@ -12,13 +12,7 @@ import ItemDetailContainer from '../src/components/Container/ItemDetailContainer
 let titulo = 'Bienvenido Coders!'
 let subtitulo = 'Vamos a aprender React'
 
-
 function App() {
-
-
-
-
-
   return (
     <>
       <CartContextProvider>
