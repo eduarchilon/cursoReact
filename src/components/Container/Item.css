@@ -3,11 +3,15 @@
     margin: 5px;
     border: 2px solid rgb(34, 21, 21);
     border-radius: 5px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card__container img{
     width: 40%;
-    margin: 10px 0;
+    margin: 10px auto;
 }
 
 .card__cuerpo{
@@ -21,6 +25,14 @@
     margin: 5px 5px;
 }
 
+.card__cuerpo h4{
+    width: 25%;
+}
+
+.card__cuerpo h3{
+    text-align: left;
+}
+
 .card__descripcion p{
     text-align: justify;
     margin: 5px 5px;
@@ -28,6 +40,7 @@
 
 .btn-detail{
     margin: 10px 0;
+
 }
 
 .btn-detail button{

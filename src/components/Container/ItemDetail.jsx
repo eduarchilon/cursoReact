@@ -17,7 +17,6 @@ function ItemDetail( {item}) {
     const [terminar, setTerminar] = useState(false)
 
 
-
     useEffect(() => {
         if(count){
             setTerminar(true)
@@ -25,6 +24,7 @@ function ItemDetail( {item}) {
             setTerminar(false)
         }
     },[count])
+
 
 
     function addItem (cant) {
@@ -65,8 +65,8 @@ function ItemDetail( {item}) {
             :   
             <ItemCount initial={0} stock={stock} onAdd={addItem} />
             
-        }
-        {/* <ItemCount initial={0} stock={stock} onAdd={addItem} /> */}
+        } 
+        {/* /* <ItemCount initial={0} stock={stock} onAdd={addItem} /> } */}
         </div>
     )
 }

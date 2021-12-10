@@ -1,16 +1,17 @@
 import './ItemListContainer.css'
 import ItemList from './ItemList';
-import {productos} from '../Other/Productos';
+// import {productos} from '../Other/Productos';
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom';
+import  getFirestore  from '../../Firebase/fireBase';
 
 
 
-const miPromesa = new Promise((resuelto, rechazado)=>{
-    setTimeout(()=>{
-        resuelto(productos)
-    }, 2000)
-})
+// const miPromesa = new Promise((resuelto, rechazado)=>{
+//     setTimeout(()=>{
+//         resuelto(productos)
+//     }, 2000)
+// })
 
 // solo que muestre un texto en pantalla
 function ItemListContainer(props) {
@@ -22,25 +23,33 @@ function ItemListContainer(props) {
     const [products, setproducts] = useState([])
     const [loading, setLoading] = useState(true)
 
+
+
     useEffect(()=>{
         if(idCategoria){
-            miPromesa
-            .then(data=>{
-                setproducts(data.filter(datos =>datos.categoria ===idCategoria))
-            })
+            const db = getFirestore()
+            const dbQuery = db.collection('productos').where('categoria', '==', idCategoria)
+            dbQuery.get()
+            .then(data=>
+                setproducts( data.docs.map(item=>( {id: item.id, ...item.data()} )) )    
+            )
             .catch(error => console.log(error))
             .finally(()=>
             setLoading(false))
         }else if (!idCategoria){
-            miPromesa
-            .then(data=>{
-                setproducts(data)
-                console.log(data)
-            })
+            const db = getFirestore()
+            const dbQuery = db.collection('productos')
+            dbQuery.get()
+            .then(data=>
+                setproducts( data.docs.map(item=>( {id: item.id, ...item.data()} )) )    
+            )
             .catch(error=> console.log(error))
             .finally(()=>setLoading(false))
         }
     },[idCategoria])
+
+    console.log(products)
+
     
 
 
@@ -55,6 +64,7 @@ function ItemListContainer(props) {
             : 
             <ItemList items={products}/>
              }
+              {/* <ItemList items={productos}/> */}
         </>
     )
 }

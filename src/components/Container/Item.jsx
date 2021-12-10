@@ -2,6 +2,7 @@ import './Item.css';
 import {Link} from 'react-router-dom';
 
 function Item({item}) {
+    
 
 
     const {id, title, price, pictureUrl, descripcion} = item;

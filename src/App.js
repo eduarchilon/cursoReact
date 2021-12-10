@@ -1,6 +1,6 @@
 import './App.css';
 import CartContextProvider from '../src/context/CartContext'
-import '../src/app/web'
+import '../src/appQuery/web'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import NavBar from '../src/components/NavBar/NavBar'
 import ItemListContainer from './components/Container/ItemListContainer';
@@ -13,6 +13,7 @@ let titulo = 'Bienvenido Coders!'
 let subtitulo = 'Vamos a aprender React'
 
 function App() {
+
   return (
     <>
       <CartContextProvider>
@@ -42,3 +43,7 @@ function App() {
 }
 
 export default App;
+
+
+
+// const getFirestore =()=> dataBase.fiirestore();
