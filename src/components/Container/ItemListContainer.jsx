@@ -5,15 +5,6 @@ import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom';
 import  getFirestore  from '../../Firebase/fireBase';
 
-
-
-// const miPromesa = new Promise((resuelto, rechazado)=>{
-//     setTimeout(()=>{
-//         resuelto(productos)
-//     }, 2000)
-// })
-
-// solo que muestre un texto en pantalla
 function ItemListContainer(props) {
 
     const {titulo, subtitulo} = props;
@@ -48,7 +39,6 @@ function ItemListContainer(props) {
         }
     },[idCategoria])
 
-    console.log(products)
 
     
 
@@ -64,7 +54,6 @@ function ItemListContainer(props) {
             : 
             <ItemList items={products}/>
              }
-              {/* <ItemList items={productos}/> */}
         </>
     )
 }

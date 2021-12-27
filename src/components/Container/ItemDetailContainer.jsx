@@ -7,13 +7,6 @@ import {useParams} from 'react-router-dom';
 // import {miPromesa} from '../Container/'
 import  getFirestore  from '../../Firebase/fireBase';
 
-// const getItem = new Promise((aceptado, rechazado)=>{
-//     setTimeout(()=>{
-//         aceptado(productos)
-//     }, 2000)
-// })
-
-
 function ItemDetailContainer() {
     const { idProducto } = useParams();
 

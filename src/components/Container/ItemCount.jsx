@@ -16,7 +16,6 @@ function ItemCount({initial, stock, onAdd}) {
         }
     }
     
-    // console.log(count)
 
     return (
         <>

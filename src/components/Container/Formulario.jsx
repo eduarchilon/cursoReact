@@ -22,7 +22,8 @@ function Formulario(){
         const [load, setLoad] = useState(true)
 
       const  handleInputCahnge =(event)=>{
-        console.log(event.target.value)
+          /*veo su valor */
+        // console.log(event.target.value)
         setDatos({
           ...datos, 
           [event.target.name] : event.target.value
@@ -48,7 +49,7 @@ function Formulario(){
             const precio = cartItem.price
             return {id, nombre, precio}
         })
-
+        
         setLoad(false)
 
         const db = getFirestore()
@@ -75,7 +76,6 @@ function Formulario(){
                 onChange={handleInputCahnge}/>
                 <button type="submit">Generar Orden</button>
             </form>
-            {/* <h3>{datos.nombre} - {datos.email}</h3> -- aca compruebo si recibo los onChange*/}
             </div>
             {!load ?
                 idOrder!=='' && 

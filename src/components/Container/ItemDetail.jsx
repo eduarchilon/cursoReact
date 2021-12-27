@@ -3,15 +3,13 @@ import React from 'react'
 import ItemCount from './ItemCount';
 import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom';
-import { useCartContext } from '../../context/CartContext';
-// import { CartContext } from '../../context/CartContext';
-// import productos from '../Other/Productos';
+import { useCartContext } from '../../context/CartContext'; 
 
 function ItemDetail( {item}) {
     
     const [count, setCount] = useState(0)
 
-    const {cartList, addProduct, removerItem, isInCart} = useCartContext()
+    const {addProduct, removerItem, isInCart} = useCartContext()
     
 
     const [terminar, setTerminar] = useState(false)
@@ -31,18 +29,14 @@ function ItemDetail( {item}) {
             if(!isInCart(item.id)){
                 addProduct ({...item, cantidad: cant})
                 setCount(cant)
-                // console.log(count)
             }else{
                 cant = cant+count
-                // console.log(cant)
-                // console.log(count)
                 removerItem(item.id)
                 addProduct ({...item, cantidad:cant})
                 setCount(cant)
-                // console.log(count)
+
             }
     }
-    console.log(cartList)
 
     const {title, price, pictureUrl, categoria, stock} = item;
 
@@ -66,7 +60,6 @@ function ItemDetail( {item}) {
             <ItemCount initial={0} stock={stock} onAdd={addItem} />
             
         } 
-        {/* /* <ItemCount initial={0} stock={stock} onAdd={addItem} /> } */}
         </div>
     )
 }

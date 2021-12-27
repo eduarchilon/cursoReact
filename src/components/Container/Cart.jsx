@@ -3,12 +3,6 @@ import { useCartContext } from '../../context/CartContext';
 import './ItemListContainer.css';
 import '../Container/Item.css';
 import CartEmpty from './CartEmpty';
-// import { Link } from 'react-router-dom';
-// import firebase from 'firebase/compat/app';
-// import 'firebase/compat/firestore';
-// import 'firebase/compat/auth';
-// import getFirestore from '../../Firebase/fireBase';
-// import CodOrder from './CodOrder';
 import Formulario from './Formulario';
 import { Link } from 'react-router-dom';
 
