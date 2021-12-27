@@ -6,6 +6,7 @@ import NavBar from '../src/components/NavBar/NavBar'
 import ItemListContainer from './components/Container/ItemListContainer';
 import Cart from '../src/components/Container/Cart'
 import ItemDetailContainer from '../src/components/Container/ItemDetailContainer'
+import CartEmpty from './components/Container/CartEmpty';
 
 
 /*variables*/
@@ -29,6 +30,9 @@ function App() {
           }/>
           <Route exact path='/cart' element={
             <Cart />
+          }/>
+          <Route exact path='/CartEmpty' element={
+            <CartEmpty />
           }/>
           <Route exact path='detail/:idProducto' element={
               <ItemDetailContainer />

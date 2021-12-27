@@ -3,13 +3,13 @@ import React, { useState } from 'react'
 function ItemCount({initial, stock, onAdd}) {
     const [count, setCount] = useState(initial)
 
-    function Sumar(){
+    function Sum(){
         if(count<stock){
             setCount(count + 1)
         }
     }
     
-    function Restar(){
+    function Rest(){
         setCount(count - 1)
         if(count===0){
             setCount(count)
@@ -22,9 +22,9 @@ function ItemCount({initial, stock, onAdd}) {
         <>
           <div className="btn-detail-container">
               <div className="btn-detail-item">
-                <button onClick={Sumar} className="sumar">+</button>
+                <button onClick={Sum} className="sumar">+</button>
                 <p>{count}</p>
-                <button onClick={Restar} className="restar">-</button>
+                <button onClick={Rest} className="restar">-</button>
               </div>
               <div className="agregar-carrito">
                 <button onClick={()=>onAdd(count)}>Agregar al carrito</button>

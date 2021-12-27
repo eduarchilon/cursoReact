@@ -7,12 +7,23 @@ export const useCartContext =()=> useContext(CartContext)
 function CartContextProvider({ children }) {
 
     const [cartList, setCartList] = useState([])
+    const [buyerList, setBuyerList] = useState({})
 
-    const agregarProducto=(item)=>{
-            setCartList([...cartList, item])
+    const addProduct=(item)=>{
+            const index = cartList.findIndex(i => i.id === item.id)//pos    -1
+  
+        if (index > -1) {
+          const oldQy = cartList[index].cantidad
+
+          cartList.splice(index, 1)
+          setCartList([...cartList, { ...item, cantidad: item.cantidad + oldQy}])
+        } else {
+          setCartList([...cartList, {...item, cantidad: item.cantidad}])
+        }
+
     }
 
-    const vaciarCarrito=()=>{
+    const emptyCart=()=>{
         setCartList([])
     }
 
@@ -23,28 +34,39 @@ function CartContextProvider({ children }) {
     }
 
     const isInCart=(id)=>{
-        let resultado
+        let result
             cartList.forEach(element => {
                 if(parseInt(element.id)===parseInt(id)){
-                    resultado= true
+                    result= true
                 }else{
-                    resultado=false
+                    result=false
                 }
         });
-        return resultado
+        return result
     }
 
-    // const isInCart=(itemId)=>{
-    //     console.log(itemId)
-    // }
+    const priceTotal =()=>{
+        return cartList.reduce((acum, value)=>(acum + (value.cantidad * value.price)), 0)
+    }
+
+    const cantidadItem=()=>{
+        return cartList.reduce((acum, item)=> acum = acum + item.cantidad, 0)
+    }
+
+    const addBuyer=(buyer)=>{
+        return setBuyerList(buyer)
+    }
 
     return(
         <CartContext.Provider value={{
             cartList,
-             agregarProducto, 
-             vaciarCarrito,
+            addProduct, 
+            emptyCart,
+             removerItem,
+             priceTotal,
+             cantidadItem,
              isInCart,
-             removerItem
+             addBuyer, buyerList
              }}>
              { children } 
         </CartContext.Provider>       

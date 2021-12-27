@@ -11,8 +11,8 @@ function ItemDetail( {item}) {
     
     const [count, setCount] = useState(0)
 
-    const {cartList, agregarProducto, removerItem, isInCart} = useCartContext()
-
+    const {cartList, addProduct, removerItem, isInCart} = useCartContext()
+    
 
     const [terminar, setTerminar] = useState(false)
 
@@ -29,7 +29,7 @@ function ItemDetail( {item}) {
 
     function addItem (cant) {
             if(!isInCart(item.id)){
-                agregarProducto ({...item, cantidad: cant})
+                addProduct ({...item, cantidad: cant})
                 setCount(cant)
                 // console.log(count)
             }else{
@@ -37,7 +37,7 @@ function ItemDetail( {item}) {
                 // console.log(cant)
                 // console.log(count)
                 removerItem(item.id)
-                agregarProducto ({...item, cantidad:cant})
+                addProduct ({...item, cantidad:cant})
                 setCount(cant)
                 // console.log(count)
             }

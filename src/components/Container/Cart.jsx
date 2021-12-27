@@ -3,51 +3,47 @@ import { useCartContext } from '../../context/CartContext';
 import './ItemListContainer.css';
 import '../Container/Item.css';
 import CartEmpty from './CartEmpty';
-// import {useContext} from 'react'
-// import { CartContext } from '../../context/CartContext';
+// import { Link } from 'react-router-dom';
+// import firebase from 'firebase/compat/app';
+// import 'firebase/compat/firestore';
+// import 'firebase/compat/auth';
+// import getFirestore from '../../Firebase/fireBase';
+// import CodOrder from './CodOrder';
+import Formulario from './Formulario';
+import { Link } from 'react-router-dom';
 
 
 function Cart() {
 
-    const {cartList, vaciarCarrito, removerItem} = useCartContext()
+    const {cartList, emptyCart, removerItem, priceTotal} = useCartContext()
+
 
     const [count, setCount] = useState(0)
     const [load, setLoad] = useState(true)
     const[precio, setPrecio] = useState(0)
 
-    let cant = 0;
-    let prec = 0.0;
+
+
 
     useEffect(()=>{
+        let cant = 0;
         if(load){
-            cartList.forEach (function(prod){
-                cant += prod.cantidad
-                prec+= prod.price
+            // aca sumo todo para el final del carrito
+            cartList.map(prod => {
+               cant+=prod.cantidad
                 setCount(cant)
-                setPrecio(prec)
-                setLoad(false)
+                setPrecio(priceTotal)
+                return setLoad(false)
             })
-    }else if(!load){
+    }if(cartList.length<=0){
         setLoad(true)
-        setCount(count)
-        setPrecio(precio)
     }
-    },[])
+    },[load, cartList, priceTotal])
 
 
-
-    // console.log("esto es " + count)
-    // console.log("estos es " +precio)
-
-    // console.log(cartList)
-
-    // const {cartList, vaciarCarrito} =useContext(CartContext)
 
     return (
         <div>
-            {/* {cartList.map(prod=> <li key={prod.id}>{prod.title} {prod.cantidad}</li>)} */}
-          
-            {/* <button onClick={()=>vaciarCarrito()}>vaciar carrito</button> */}
     
             {load  ?
             
@@ -55,6 +51,7 @@ function Cart() {
 
             :
 
+            <div>
             <table className="table">
             <tbody>
                 <tr className="table-primary t-titulos">
@@ -67,20 +64,27 @@ function Cart() {
                 <tr className="table-primary t-item">
                     <td className="table-primary"><p>{prod.title}</p></td>
                     <td className="table-primary"><p>{prod.cantidad}</p></td>
-                    <td className="table-primary"><p>$ {prod.price}</p></td>
+                    <td className="table-primary"><p>$ {prod.cantidad * prod.price}</p></td>
                     <td className="table-primary"><button onClick={removerItem}>Borrar</button></td>
                 </tr>
                 )}
                 <tr className="table-primary t-item">
-                    <td className="table-primary"><button onClick={vaciarCarrito}>vaciar carrito</button></td>
-                    <td className="table-primary"><h4>{count}</h4></td>
+                    <td className="table-primary">
+                        <h4>Total</h4>
+                    </td>
+                    <td className="table-primary">{count}</td>
                     <td className="table-primary"><h4>$ {precio}</h4></td>
-                    <td className="table-primary"></td>
+                    <td className="table-primary">
+                    <Link to="/cartEmpty">
+                    <button  onClick={emptyCart}  className="empty">vaciar carrito</button>
+                    </Link>
+                    </td>
                 </tr>
             </tbody>
         </table>
+        <Formulario />
+        </div>
             }
-
             </div>
     
         )

@@ -4,7 +4,7 @@ import { useCartContext } from '../../context/CartContext'
 
 function CartWidget() {
 
-    const {cartList, vaciarCarrito} = useCartContext()
+    const {cartList} = useCartContext()
 
     let cant = 0;
 
