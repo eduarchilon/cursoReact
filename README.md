@@ -5,6 +5,10 @@ PROFESOR: Federico Osandon
 
 https://drive.google.com/file/d/1aJWDV9J1eDcVOP1lr2S6LxLZWImW2eBv/view?usp=sharing
 
+- Link del deploy:
+
+https://coderhouse-react-ecomerce.netlify.app/
+
 - Mi proyecto consiste en una e-comerce de comics en donde podremos comprar la cantidad que querramos (dependiendo el stock).
 
 - LIBRERIAS EXTERNAS AL PROYECTO:
