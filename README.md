@@ -1,8 +1,16 @@
+COMISION: Comisión 16990
+PROFESOR: Federico Osandon
+
 - Link del video de navegacion de rutas:
 
-https://drive.google.com/file/d/1uQM9dkZJL1ImSa1AmahyIXoutcI0DG_H/view?usp=sharing
+https://drive.google.com/file/d/1aJWDV9J1eDcVOP1lr2S6LxLZWImW2eBv/view?usp=sharing
 
-- No usé ninguna librería de estilo, solo CSS puro para que sea mas visible en este desafio
+- Mi proyecto consiste en una e-comerce de comics en donde podremos comprar la cantidad que querramos (dependiendo el stock).
 
-- Comision: Comisión 16990
-    Profesor: Federico Osandon
+- LIBRERIAS EXTERNAS AL PROYECTO:
+    - Firebase: para facilitar el uso de datos sin estar usando un back-end. Ideal para desarrollo y pruebas.
+    - React-Router-Dom: para poder navegar entre paginas
+    - Fragment: para la obtencion de datos en formularios
+    - Context: para guardar datos en tiempo real
+ 
+ - En este caso no se uso ningun framework o libreria de estilo y diseño, solo se uso CSS 3 puro.
